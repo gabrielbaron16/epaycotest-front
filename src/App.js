@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { Component } from 'react';
+import Route from 'react-router-dom/Route';
+import CreateClient from './pages/createClient';
+import RechargeWallet from './pages/rechargeWallet';
+import GetBalance from './pages/getBalance';
+import CreateTransaction from './pages/createTransaction';
+import ConfirmTransaction from './pages/confirmTransaction';
+import { BrowserRouter } from 'react-router-dom';
+import Nav from "./components/navBar";
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <BrowserRouter>
+          <div>
+            <Nav />
+            <Route exact path="/client" component={CreateClient} />
+            <Route path="/wallet" component={RechargeWallet} />
+            <Route exact path="/balance" component={GetBalance} />
+            <Route exact path="/transaction" component={CreateTransaction} />
+            <Route exact path="/confirm" component={ConfirmTransaction} />
+          </div>
+        </BrowserRouter>
+      </div>
+    );
+  }
 }
-
 export default App;
