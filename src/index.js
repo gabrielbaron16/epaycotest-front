@@ -3,11 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import App from './App';
+import { Provider as AlertProvider } from 'react-alert'
+import AlertTemplate from 'react-alert-template-basic'
 import * as serviceWorker from './serviceWorker';
+
+const options = {
+  position: 'top center',
+  timeout: 0
+}
 
 ReactDOM.render(
   <React.StrictMode>
+    <AlertProvider template={AlertTemplate} {...options}>
     <App />
+  </AlertProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
